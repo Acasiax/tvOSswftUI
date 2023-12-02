@@ -5,54 +5,53 @@
 //  Created by 이윤지 on 12/2/23.
 //
 import Foundation
-import SwiftUI
 
 class CategoryProvider: ObservableObject {
-    @Published var categories: [Category] = []
-    var currentCotext: ProviderContext = .general
-    var dataProvider: DataProvider
+  @Published var categories: [Category] = []
+  var currentContext: ProviderContext = .general
+  var dataProvider: DataProvider
 
-    init(dataProvider: DataProvider) {
-      self.dataProvider = dataProvider
-    }
-enum ProviderContext: Equatable{
+  init(dataProvider: DataProvider) {
+    self.dataProvider = dataProvider
+  }
+
+  enum ProviderContext: Equatable {
     case general, favorites, lotsOfVideos
-    
+
     var formattedName: String {
-        switch self {
-        case .general: return "모든 비디오"
-        case .favorites: return "좋아요"
-        case .lotsOfVideos: return "Lots of Videos"
-        }
+      switch self {
+      case .general: return "All Videos"
+      case .favorites: return "Favorites"
+      case .lotsOfVideos: return "Lots of Videos"
+      }
     }
-    
+// 카데고리 제목이 누락 될 때
     var missingCategoriesTitle: String {
-        if self == .general || self == .lotsOfVideos {
-            return "그 어떠한 비디오도 찾지 못했습니다."
-        } else {
-            return "좋아요한 비디오가 없습니다"
-        }
+      if self == .general || self == .lotsOfVideos {
+        return "Couldn't find any videos..."
+      } else {
+        return "No Favorite Videos"
+      }
     }
-    
+
+    // 카테고리 설명이 누락 될 때
     var missingCategoriesDescription: String {
-        if self == .general || self == .lotsOfVideos {
-            return "비디오나 카테고리를 불러오지 못했습니다. 무언가 잘못되었나요?"
-        } else {
-            return "좋아하는 비디오가 없습니다."
-        }
+      if self == .general || self == .lotsOfVideos {
+        return "비디오나 카테고리를 불러오지 못했습니다. 무언가 잘못되었나요?"
+      } else {
+        return "좋아하는 비디오가 없습니다.."
+      }
     }
-}
+  }
 
-
-////새로고침 함수
-public func refresh() {
-    switch currentCotext {
+  public func refresh() {
+    switch currentContext {
     case .general:
-        categories = dataProvider.categories
-    case .favorites:
-        categories = dataProvider.massiveCategoryList
+      categories = dataProvider.categories
     case .lotsOfVideos:
-        categories = dataProvider.categoriesWithFavoriteVideos
+      categories = dataProvider.massiveCategoryList
+    case .favorites:
+      categories = dataProvider.categoriesWithFavoriteVideos
     }
-}
+  }
 }

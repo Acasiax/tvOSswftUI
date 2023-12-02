@@ -12,6 +12,11 @@
 		AABE2C042B1AB81800F25997 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABE2C032B1AB81800F25997 /* Item.swift */; };
 		AABE2C062B1AB81900F25997 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AABE2C052B1AB81900F25997 /* Assets.xcassets */; };
 		AABE2C092B1AB81900F25997 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AABE2C082B1AB81900F25997 /* Preview Assets.xcassets */; };
+		AABE2C102B1ABA5100F25997 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABE2C0F2B1ABA5100F25997 /* DataProvider.swift */; };
+		AABE2C122B1ABC0200F25997 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABE2C112B1ABC0200F25997 /* Category.swift */; };
+		AABE2C142B1ABD2D00F25997 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABE2C132B1ABD2D00F25997 /* Video.swift */; };
+		AABE2C162B1AEE1700F25997 /* CategoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABE2C152B1AEE1700F25997 /* CategoryProvider.swift */; };
+		AABE2C182B1B0ADF00F25997 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABE2C172B1B0ADF00F25997 /* CategoryListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +26,11 @@
 		AABE2C032B1AB81800F25997 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		AABE2C052B1AB81900F25997 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AABE2C082B1AB81900F25997 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AABE2C0F2B1ABA5100F25997 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		AABE2C112B1ABC0200F25997 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		AABE2C132B1ABD2D00F25997 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		AABE2C152B1AEE1700F25997 /* CategoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProvider.swift; sourceTree = "<group>"; };
+		AABE2C172B1B0ADF00F25997 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,11 +63,13 @@
 		AABE2BFE2B1AB81800F25997 /* tvOSswftUI */ = {
 			isa = PBXGroup;
 			children = (
-				AABE2BFF2B1AB81800F25997 /* tvOSswftUIApp.swift */,
+				AABE2C1A2B1B0BCC00F25997 /* View */,
 				AABE2C012B1AB81800F25997 /* ContentView.swift */,
+				AABE2C192B1B0B4200F25997 /* Model */,
 				AABE2C032B1AB81800F25997 /* Item.swift */,
 				AABE2C052B1AB81900F25997 /* Assets.xcassets */,
 				AABE2C072B1AB81900F25997 /* Preview Content */,
+				AABE2C172B1B0ADF00F25997 /* CategoryListView.swift */,
 			);
 			path = tvOSswftUI;
 			sourceTree = "<group>";
@@ -68,6 +80,25 @@
 				AABE2C082B1AB81900F25997 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AABE2C192B1B0B4200F25997 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AABE2BFF2B1AB81800F25997 /* tvOSswftUIApp.swift */,
+				AABE2C0F2B1ABA5100F25997 /* DataProvider.swift */,
+				AABE2C152B1AEE1700F25997 /* CategoryProvider.swift */,
+				AABE2C112B1ABC0200F25997 /* Category.swift */,
+				AABE2C132B1ABD2D00F25997 /* Video.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AABE2C1A2B1B0BCC00F25997 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,8 +171,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AABE2C162B1AEE1700F25997 /* CategoryProvider.swift in Sources */,
 				AABE2C022B1AB81800F25997 /* ContentView.swift in Sources */,
+				AABE2C142B1ABD2D00F25997 /* Video.swift in Sources */,
+				AABE2C122B1ABC0200F25997 /* Category.swift in Sources */,
 				AABE2C042B1AB81800F25997 /* Item.swift in Sources */,
+				AABE2C102B1ABA5100F25997 /* DataProvider.swift in Sources */,
+				AABE2C182B1B0ADF00F25997 /* CategoryListView.swift in Sources */,
 				AABE2C002B1AB81800F25997 /* tvOSswftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
