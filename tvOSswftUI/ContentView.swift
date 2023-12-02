@@ -6,50 +6,37 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+  @ObservedObject var dataProvider = DataProvider()
 
-    var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
+  var body: some View {
+    NavigationView {
+      TabView {
+        CategoryListView(categoryContext: .general, dataProvider: dataProvider)
+          .tabItem {
+            HStack {
+              Image(systemName: "list.bullet.below.rectangle")
+              Text("All Videos")
             }
-            .toolbar {
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
+          }
+        CategoryListView(categoryContext: .favorites, dataProvider: dataProvider)
+          .tabItem {
+            HStack {
+              Image(systemName: "heart.fill")
+              Text("Favorites")
             }
-        } detail: {
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+          }
+        CategoryListView(categoryContext: .lotsOfVideos, dataProvider: dataProvider)
+          .tabItem {
+            HStack {
+              Image(systemName: "star.fill")
+              Text("Lots of Videos")
             }
-        }
+          }
+      }
     }
+  }
 }
 
 #Preview {
